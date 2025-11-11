@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>t3rra__ignis — Ceramic Works Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://assets.bigcartel.com" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="floating-logo" aria-hidden="true">
+    <img src="https://assets.bigcartel.com/theme_images/148459698/Logo+Search+_7_.png?auto=format&fit=max&h=240" alt="" />
+  </div>
+  <section class="brand-banner">
+    <div class="brand-mark">
+      <img
+        src="https://assets.bigcartel.com/theme_images/148459698/Logo+Search+_7_.png?auto=format&fit=max&h=180"
+        alt="Terra Ignis logomark"
+        class="brand-logo"
+      />
+      <div class="brand-copy">
+        <p class="brand-name">Terra_Ignis</p>
+        <p class="brand-tag">I like creating stuff with clay, it's healing.</p>
+      </div>
+    </div>
+  </section>
+  <header class="site-header" data-sticky>
+    <nav class="primary-nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+      <ul id="nav-list">
+        <li><a href="#collections">Collection</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="ghost" data-action="waitlist">Join Waitlist</button>
+      <button class="pill" data-action="looklist" aria-live="polite">
+        Looklist <span id="looklistCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">Athens micro-batch ceramics · mugs & ashtrays</p>
+        <h1>Ceramics made from Greece brought to you by Marialenas Gomenos!</h1>
+        <p>This preview pulls real listings from the Big Cartel shop so you can plan reservations before payments go live here. Every piece is hand-built, hand-painted, and rooted in the same motifs you see across @terra__ignis.</p>
+        <div class="hero-cta">
+          <button class="primary" data-action="notify">Get first access</button>
+          <button class="ghost" data-action="viewLookbook">Browse lookbook</button>
+        </div>
+        <dl class="hero-stats">
+          <div>
+            <dt>Studio</dt>
+            <dd>t3rra__ignis · Greece</dd>
+          </div>
+          <div>
+            <dt>Catalog snapshot</dt>
+            <dd>Synced from Big Cartel RSS feed</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero-media">
+        <figure>
+          <img src="https://assets.bigcartel.com/product_images/67b02dca-1ac7-43b9-8b40-715f45da3604/euclid-mug.jpg?auto=format&fit=max&w=900" alt="Euclid mug resting on linen" />
+          <figcaption>Euclid mug · in stock · direct from t3rraignis.bigcartel.com</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="story-grid" id="story">
+      <article>
+        <h2>The studio story</h2>
+        <p>The official shop documents the dialogue between biker culture, flora, and outlaw motifs rendered onto stoneware. Collections swing between mugs, ashtrays, and illustrated slabs, all fired in small Athens batches.</p>
+        <ul>
+          <li>Motifs pulled straight from the Instagram feed and tattoo flash sheets.</li>
+          <li>Categories currently live on Big Cartel: <strong>mugs</strong> and <strong>ashtrays</strong>.</li>
+          <li>Each listing is a one-off; once marked sold out, it is archived here for reference.</li>
+        </ul>
+      </article>
+      <article class="accent-card">
+        <p class="eyebrow">Process</p>
+        <h3>From wheel to web</h3>
+        <p>Hand-built blanks are illustrated after bisque, then fired again for the glossy enamel finish. Feed highlights double as product photography—what you see there is what ships.</p>
+        <button class="text-link" data-action="process">Read the journal</button>
+      </article>
+      <figure>
+        <img src="https://assets.bigcartel.com/product_images/3a6d9e59-ff99-4cd9-a8c7-3b37ed9b46aa/blue-roses-mug.jpg?auto=format&fit=max&w=800" alt="Blue Roses mug in studio" />
+      </figure>
+      <figure>
+        <img src="https://assets.bigcartel.com/product_images/320d7221-150d-4ca5-bff5-e53f08f23328/balaclava-ashtray.jpg?auto=format&fit=max&w=800" alt="Balaclava ashtray close-up" />
+      </figure>
+    </section>
+
+    <section class="collection-section" id="collections">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Live catalog preview</p>
+          <h2>Current mugs + ashtrays from t3rraignis.bigcartel.com</h2>
+        </div>
+        <p class="section-note">Synced manually · prices in EUR · availability mirrors the Big Cartel feed.</p>
+      </div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="lookbook" id="lookbook">
+      <div class="section-heading">
+        <p class="eyebrow">Lookbook</p>
+        <h2>Scenes pulled from current listings</h2>
+        <p>Use these pairings to imagine full table settings before checkout launches.</p>
+      </div>
+      <div class="lookbook-grid">
+        <figure>
+          <img src="https://assets.bigcartel.com/product_images/3a6d9e59-ff99-4cd9-a8c7-3b37ed9b46aa/blue-roses-mug.jpg?auto=format&fit=max&w=900" alt="Blue Roses mug styled with florals" />
+          <figcaption>Blue Roses Mug · €23 · currently <span class="status-tag status-out">sold out</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.bigcartel.com/product_images/270c8ef5-a772-4dba-9a86-407c58d9b9a7/felines-ashtray.jpg?auto=format&fit=max&w=900" alt="Felines ashtray with illustrated cats" />
+          <figcaption>Felines Ashtray · €25 · <span class="status-tag status-out">sold out</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.bigcartel.com/product_images/db7342af-3194-4563-b5a3-c782ad73d685/moon-ashtray.jpg?auto=format&fit=max&w=900" alt="Moon ashtray on linen" />
+          <figcaption>Moon Ashtray · €25 · <span class="status-tag status-in">available</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="journal" id="journal">
+      <div class="section-heading">
+        <p class="eyebrow">Studio Notes</p>
+        <h2>Highlights inspired by the current catalog</h2>
+      </div>
+      <div class="journal-grid">
+        <article>
+          <p class="eyebrow">Mug drop</p>
+          <h3>“Euclid + Vintage mugs keep the speedway palette alive.”</h3>
+          <p>Raised slip lines and deep forest greens nod to cafe racer jackets—the same ones photographed across the shop feed.</p>
+        </article>
+        <article>
+          <p class="eyebrow">Ashtray bench</p>
+          <h3>“Balaclava, Dagger, and Pickles ashtrays each carry a different outlaw sketch.”</h3>
+          <p>They share the same clay body but swap in freehand illustrations—expect subtle variations even within a motif.</p>
+        </article>
+        <article>
+          <p class="eyebrow">Feed-to-cart</p>
+          <h3>“Look for the ‘sold out’ overlay—this site mirrors it so you’re never guessing.”</h3>
+          <p>We surface availability straight from Big Cartel, letting you plan waitlist submissions without refreshing multiple tabs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div>
+        <p class="eyebrow">Studio waitlist</p>
+        <h2>Reserve a vessel before checkout launches here</h2>
+        <form class="waitlist-form" aria-label="Join the waitlist">
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@rituals.com" required />
+          </label>
+          <button class="primary" type="submit">Join the list</button>
+        </form>
+        <p class="muted">Or head to <a href="https://t3rraignis.bigcartel.com" target="_blank" rel="noreferrer">the official Big Cartel store</a> to purchase immediately.</p>
+      </div>
+      <div class="contact-card">
+        <h3>Studio notes</h3>
+        <p>Location: Greece · appointments via DM</p>
+        <p>DM @terra__ignis or use the contact form on Big Cartel for commissions.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Terra Ignis. Catalog data from t3rraignis.bigcartel.com.</p>
+    <div>
+      <a href="https://www.instagram.com/terra__ignis/" target="_blank" rel="noreferrer">Instagram</a>
+      <a href="https://t3rraignis.bigcartel.com" target="_blank" rel="noreferrer">Big Cartel</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <div id="actionStatus" class="toast" role="status" aria-live="polite"></div>
+
+  <template id="product-card-template">
+    <article class="product-card">
+      <div class="media-wrapper">
+        <img src="" alt="" />
+        <span class="badge"></span>
+      </div>
+      <div class="product-meta">
+        <div>
+          <p class="product-name"></p>
+          <p class="product-type"></p>
+          <p class="product-desc"></p>
+        </div>
+        <div class="product-footer">
+          <span class="price"></span>
+          <span class="availability-chip"></span>
+        </div>
+        <div class="product-actions">
+          <button class="primary compact" data-action="reserve">Add to looklist</button>
+          <a class="external-link" target="_blank" rel="noreferrer">View listing</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

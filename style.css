@@ -3,8 +3,8 @@
 :root {
   color-scheme: light;
   --bg: #f6ede3;
-  --surface: #fff9f2;
-  --surface-alt: #f1e4d7;
+  --surface: #fff4e8;
+  --surface-alt: #f6e5d3;
   --text: #2d1c12;
   --muted: #7a6555;
   --accent: #ffb347;
@@ -99,14 +99,17 @@ ul {
   border: none;
   box-shadow: none;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
 }
 
 .site-header {
   width: min(var(--max-width), 92vw);
   margin: 0.35rem auto 1.25rem;
   padding: 0.7rem 1.1rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--surface);
   border-radius: 999px;
   border: 1px solid var(--border);
   display: flex;
@@ -121,33 +124,38 @@ ul {
 .brand-mark {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .brand-logo {
-  width: 6.5rem;
-  height: 6.5rem;
+  width: 13rem;
+  height: 13rem;
   object-fit: contain;
   border-radius: 50%;
-  border: 2px solid rgba(255, 179, 71, 0.7);
-  background: #ffffff;
-  padding: 0.45rem;
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 .brand-copy {
   line-height: 1.2;
 }
 
-.brand-name {
-  font-weight: 600;
-  margin: 0;
+.brand-copy.stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .brand-tag {
   margin: 0;
-  color: var(--muted);
-  font-size: 0.85rem;
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .primary-nav {

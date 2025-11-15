@@ -198,6 +198,53 @@ heroButtons.forEach((button) =>
   })
 );
 
+const rootElement = document.documentElement;
+const scrollPalette = {
+  magenta: [255, 0, 168],
+  black: [5, 5, 5]
+};
+
+const lerp = (start, end, t) => start + (end - start) * t;
+const lerpColor = (origin, target, t) => origin.map((channel, index) => Math.round(lerp(channel, target[index], t)));
+
+function applyScrollPalette(progress) {
+  const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
+  const pinkX = lerp(12, 80, ease);
+  const pinkY = lerp(18, 0, ease);
+  const blueX = lerp(80, 12, ease);
+  const blueY = lerp(0, 18, ease);
+  rootElement.style.setProperty('--pink-x', `${pinkX}%`);
+  rootElement.style.setProperty('--pink-y', `${pinkY}%`);
+  rootElement.style.setProperty('--blue-x', `${blueX}%`);
+  rootElement.style.setProperty('--blue-y', `${blueY}%`);
+
+  const accentColor = lerpColor(scrollPalette.magenta, scrollPalette.black, ease);
+  const accentAltColor = lerpColor(scrollPalette.black, scrollPalette.magenta, ease);
+  const formatRgb = (colorArray) => colorArray.join(', ');
+
+  rootElement.style.setProperty('--accent', `rgb(${formatRgb(accentColor)})`);
+  rootElement.style.setProperty('--accent-alt', `rgb(${formatRgb(accentAltColor)})`);
+  rootElement.style.setProperty('--accent-soft', `rgba(${formatRgb(accentColor)}, 0.2)`);
+  rootElement.style.setProperty('--pink-radial', `rgba(${formatRgb(accentColor)}, 0.28)`);
+  rootElement.style.setProperty('--blue-radial', `rgba(${formatRgb(accentAltColor)}, 0.24)`);
+}
+
+let scheduled = false;
+function handleScrollPalette() {
+  if (scheduled) return;
+  scheduled = true;
+  requestAnimationFrame(() => {
+    scheduled = false;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll <= 0 ? 0 : Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+    applyScrollPalette(progress);
+  });
+}
+
+window.addEventListener('scroll', handleScrollPalette, { passive: true });
+window.addEventListener('wheel', handleScrollPalette, { passive: true });
+applyScrollPalette(0);
+
 const looklistButton = document.querySelector('[data-action="looklist"]');
 looklistButton?.addEventListener('click', () => {
   showToast(`Looklist holds ${looklistCount || 0} item${looklistCount === 1 ? '' : 's'}. Use View listing to buy on Big Cartel.`);
@@ -206,50 +253,4 @@ looklistButton?.addEventListener('click', () => {
 const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
-}
-
-const floatingLogo = document.querySelector('.floating-logo');
-if (floatingLogo) {
-  const state = {
-    x: window.innerWidth * 0.2,
-    y: window.innerHeight * 0.15,
-    vx: 0.12, // px per ms
-    vy: 0.09
-  };
-  const size = { width: floatingLogo.offsetWidth, height: floatingLogo.offsetHeight };
-  const updateSize = () => {
-    size.width = floatingLogo.offsetWidth;
-    size.height = floatingLogo.offsetHeight;
-  };
-  window.addEventListener('resize', () => {
-    updateSize();
-    state.x = Math.min(state.x, window.innerWidth - size.width);
-    state.y = Math.min(state.y, window.innerHeight - size.height);
-  });
-
-  let lastTime = performance.now();
-  const step = (time) => {
-    const delta = time - lastTime;
-    lastTime = time;
-
-    const maxX = Math.max(0, window.innerWidth - size.width);
-    const maxY = Math.max(0, window.innerHeight - size.height);
-
-    state.x += state.vx * delta;
-    state.y += state.vy * delta;
-
-    if (state.x <= 0 || state.x >= maxX) {
-      state.vx *= -1;
-      state.x = Math.min(Math.max(state.x, 0), maxX);
-    }
-    if (state.y <= 0 || state.y >= maxY) {
-      state.vy *= -1;
-      state.y = Math.min(Math.max(state.y, 0), maxY);
-    }
-
-    floatingLogo.style.transform = `translate3d(${state.x}px, ${state.y}px, 0)`;
-    requestAnimationFrame(step);
-  };
-
-  requestAnimationFrame(step);
 }

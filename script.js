@@ -190,8 +190,14 @@ waitlistForm?.addEventListener('submit', (event) => {
   event.currentTarget.reset();
 });
 
-const heroButtons = document.querySelectorAll('[data-action="notify"], [data-action="viewLookbook"], [data-action="waitlist"], [data-action="process"]');
-heroButtons.forEach((button) =>
+const gallerySection = document.getElementById('gallery');
+const galleryButton = document.querySelector('[data-action="viewGallery"]');
+galleryButton?.addEventListener('click', () => {
+  gallerySection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+const toastButtons = document.querySelectorAll('[data-action="waitlist"], [data-action="process"]');
+toastButtons.forEach((button) =>
   button.addEventListener('click', () => {
     const label = button.textContent?.trim() || 'Action';
     showToast(`${label} coming soon — visit Big Cartel for live checkout.`);
